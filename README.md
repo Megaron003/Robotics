@@ -151,7 +151,7 @@ else:
 
 - All right! Now you can see your fantastic, amazing and super genial H1 biped robot from Unitree!... Falling like a banana lol XD. Don't worry, let's solve thist problem! First, we need a control algorith. Where we can found one of this? Well, i don't know, because this i am in master's. But, as soon as i have the answer, i’ll write here. (update: 02/17/2026, 11:42 PM UTC -3)
 
-## Agradecimentos Especiais 🤝
+## Special Thanks 🤝
 
 I would like thanks to **[Unitree Robotics](https://github.com/unitree)** for:
 
