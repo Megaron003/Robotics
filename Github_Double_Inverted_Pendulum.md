@@ -156,14 +156,57 @@ print("Dataset saved at:", OUTPUT)
 ```
 
 ## Step 2 - Data Visualization and tabulation
-- Now, has been acquisitated data, we need see what wee have and transform the form to see this in a tablet form.
-- The data has come to us is a .csv file, like a matrix, we have in the first column a epsode in wich the data has been acquisitation from model simulation. We separe in five generations, epsode 0 to 4. In the second column we have time of acquisition data, in wich has been do the data colletion from frequence aquisition. The third and fourth column was a angle values from sine and cossine about theta1, the same form the column five and six are sine and cossine from theta2. But all of this is just a .csv file, we need a tablet data. For this, we just need work with lines and columns in .csv file to do a tablet data file. But, before, is a good option see what happenned with your model, for this we can use the matplolib to generate a graph. So, let's do this and we can found a result like a figure bellow.
+- Now, that data has been acquired, we need see what we have and transform it into tabular format.
+- The data we received is a .csv file, which can be interpreted similarly to a matrix. In the first column, we have the episode in which the data was acquired from the simulation model. The dataset is divided into five episodes, from episode 0 to episode 4. In the second column, we have the data acquisition time, which corresponds to the sampling time used during the data collection process. The third and fourth columns contain the trigonometric representations (sine and cosine) of the angle θ₁ (theta1). Similarly, the fifth and sixth columns contain the sine and cosine values of θ₂ (theta2). However, at this stage, the data is still just a .csv file. Therefore, we need to organize it into a structured tabular dataset, where each row represents an observation and each column represents a variable. To accomplish this, we process the rows and columns of the .csv file and reorganize them into a properly structured dataset. Before performing further processing, it is also useful to visualize the behavior of the model. For this purpose, we can use the Matplotlib library to generate graphs and better understand the data. By doing this, we can obtain a result similar to the figure shown below.
 <img width="1000" height="600" alt="Figure_2_Graph_Four_Angles_Inverted_Pendulum_Representation" src="https://github.com/user-attachments/assets/fa68e844-6a84-4fad-a65f-29a85a515b5d" />
 
-OMG!!! WHAT IS THIS????????? Calm down, friend. It's O.K., even if not seems xD. But, why this is so confuse and desorganizated? Well, why we have the four angles im same graph. If we separe this we will have a situation like bellow.
+OMG!!! WHAT IS THIS????????? Calm down, friend. It's O.K., even if not seems xD. But, why this is so confuse and desorganizated? Well, why we have the four angles im same graph. If we separe this we will have a situation like below.
 <img width="1440" height="787" alt="Figure_2_Graph_Individual_Plot_Four_Angles_Inverted_Pendulum_Representation" src="https://github.com/user-attachments/assets/0d2e158f-5057-44f1-a1ce-da26ac57808d" />
 
-Better, no? ;D
+Better, no? ;D. So, now we need do the data tabulation. Well, this process is simple, we can do that with the below code.
+
+```python
+
+import pandas as pd
+import numpy as np
+import os
+
+arquivo = r"data/pendulum_dataset.csv"
+saida = r"dataset_projeto0/pendulum_dataset_tabular.csv"
+
+os.makedirs("dataset_projeto0", exist_ok=True)
+
+# ===== Importação (Aquisição de Dados) =====
+df = pd.read_csv(arquivo)
+
+print("Estrutura original:")
+print(df.head())
+
+# ===== Organização das variáveis =====
+dataset = pd.DataFrame()
+
+dataset["episode"] = df.iloc[:, 0]
+dataset["time"] = df.iloc[:, 1]
+
+dataset["theta1_rad"] = df.iloc[:, 2]
+dataset["theta2_rad"] = df.iloc[:, 3]
+
+# ===== Transformação trigonométrica =====
+dataset["sin_theta1"] = np.sin(dataset["theta1_rad"])
+dataset["cos_theta1"] = np.cos(dataset["theta1_rad"])
+
+dataset["sin_theta2"] = np.sin(dataset["theta2_rad"])
+dataset["cos_theta2"] = np.cos(dataset["theta2_rad"])
+
+# ===== Salvar dataset final =====
+dataset.to_csv(saida, index=False)
+
+print("\nDataset final estruturado:")
+print(dataset.head())
+
+print("\nDataset salvo em:", saida)
+
+```
 
 
 
