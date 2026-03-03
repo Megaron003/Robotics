@@ -153,3 +153,12 @@ with open(OUTPUT, "w", newline="") as f:
                     time.sleep(time_until_next_step)
 
 print("Dataset saved at:", OUTPUT)
+
+## Step 2 - Data Visualization and tabulation
+- Now, has been acquisitated data, we need see what wee have and transform the form to see this in a tablet form.
+- The data has come to us is a .csv file, like a matrix, we have in the first column a epsode in wich the data has been acquisitation from model simulation. We separe in five generations, epsode 0 to 4. In the second column we have time of acquisition data, in wich has been do the data colletion from frequence aquisition. The third and fourth column was a angle values from sine and cossine about theta1, the same form the column five and six are sine and cossine from theta2. But all of this is just a .csv file, we need a tablet data. For this, we just need work with lines and columns in .csv file to do a tablet data file. But, before, is a good option see what happenned with your model, for this we can use the matplolib to generate a graph. So, let's do this and we can found a result like a figure bellow.
+
+<img width="1000" height="600" alt="Figure_2_Graph_Four_Angles_Inverted_Pendulum_Representation" src="https://github.com/user-attachments/assets/fa68e844-6a84-4fad-a65f-29a85a515b5d" />
+
+OMG!!! WHAT IS THIS????????? Calm down, friend. It's O.K., even if not seems xD. But, why this is so confuse and desorganizated? Well, why we have the four angles im same graph. If we separe this we will have a situation like bellow.
+
