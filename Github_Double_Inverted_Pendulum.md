@@ -1,12 +1,9 @@
-# A Pipeline to how do a double interted pendulum be stable
+# A Pipeline to Stabilize a Double Inverted Pendulum
 
+## Step 1
+- You need to understand the dynamics of a double inverted pendulum system.
 
-## First
-- You need understand a double inverted pendulum problem system.
-
-
-´´´
-
+```python
 import mujoco
 import mujoco.viewer
 import csv
@@ -19,7 +16,7 @@ OUTPUT = "data/pendulum_dataset.csv"
 model = mujoco.MjModel.from_xml_path(MODEL_PATH)
 data = mujoco.MjData(model)
 
-#Inclinação inicial para o pêndulo cair
+# Initial inclination so the pendulum can fall due to gravity
 data.qpos[0] = 0.2
 data.qpos[1] = -0.1
 
@@ -32,10 +29,10 @@ with open(OUTPUT, "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["time", "theta1", "theta2"])
 
-    #Abrir visualizador
+    # Open the viewer
     with mujoco.viewer.launch_passive(model, data) as viewer:
 
-        print("Simulação iniciada...")
+        print("Simulation started...")
 
         while viewer.is_running():
 
@@ -54,11 +51,9 @@ with open(OUTPUT, "w", newline="") as f:
 
             viewer.sync()
 
-            #manter tempo real
+            # Keep real-time simulation
             time_until_next_step = model.opt.timestep - (time.time() - step_start)
             if time_until_next_step > 0:
                 time.sleep(time_until_next_step)
 
-print("Simulação finalizada!")
-
-´´´
+print("Simulation finished!")
