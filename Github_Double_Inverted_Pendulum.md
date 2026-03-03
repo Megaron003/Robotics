@@ -161,5 +161,10 @@ print("Dataset saved at:", OUTPUT)
 <img width="1000" height="600" alt="Figure_2_Graph_Four_Angles_Inverted_Pendulum_Representation" src="https://github.com/user-attachments/assets/fa68e844-6a84-4fad-a65f-29a85a515b5d" />
 
 OMG!!! WHAT IS THIS????????? Calm down, friend. It's O.K., even if not seems xD. But, why this is so confuse and desorganizated? Well, why we have the four angles im same graph. If we separe this we will have a situation like bellow.
+<img width="1440" height="787" alt="Figure_2_Graph_Individual_Plot_Four_Angles_Inverted_Pendulum_Representation" src="https://github.com/user-attachments/assets/0d2e158f-5057-44f1-a1ce-da26ac57808d" />
+
+Better, no? ;D
+
+
 
 
